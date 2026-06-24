@@ -30,7 +30,10 @@ import MarkdownPreview from './previews/MarkdownPreview'
 import CodePreview from './previews/CodePreview'
 import OfficePreview from './previews/OfficePreview'
 import AudioPreview from './previews/AudioPreview'
-import VideoPreview from './previews/VideoPreview'
+// Disabling SSR for video preview (uses plyr which needs document)
+const VideoPreview = dynamic(() => import('./previews/VideoPreview'), {
+  ssr: false,
+})
 import PDFPreview from './previews/PDFPreview'
 import URLPreview from './previews/URLPreview'
 import ImagePreview from './previews/ImagePreview'
